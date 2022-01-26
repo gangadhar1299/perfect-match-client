@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/gangadhar1299/perfect-match-client/static/css/main.2ab0a3b3.css",
+    "main.js": "/gangadhar1299/perfect-match-client/static/js/main.cb380125.js",
+    "static/js/641.e51faa9c.chunk.js": "/gangadhar1299/perfect-match-client/static/js/641.e51faa9c.chunk.js",
+    "static/js/474.d6919163.chunk.js": "/gangadhar1299/perfect-match-client/static/js/474.d6919163.chunk.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/gangadhar1299/perfect-match-client/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/gangadhar1299/perfect-match-client/index.html",
+    "main.2ab0a3b3.css.map": "/gangadhar1299/perfect-match-client/static/css/main.2ab0a3b3.css.map",
+    "main.cb380125.js.map": "/gangadhar1299/perfect-match-client/static/js/main.cb380125.js.map",
+    "641.e51faa9c.chunk.js.map": "/gangadhar1299/perfect-match-client/static/js/641.e51faa9c.chunk.js.map",
+    "474.d6919163.chunk.js.map": "/gangadhar1299/perfect-match-client/static/js/474.d6919163.chunk.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/gangadhar1299/perfect-match-client/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ab0a3b3.css",
+    "static/js/main.cb380125.js"
+  ]
+}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkclient=self.webpackChunkclient||[]).push([[641],{641:function(e,n,t){t.r(n);var c=t(184);n.default=function(){return(0,c.jsx)("div",{children:"Authenticated"})}}}]);
+//# sourceMappingURL=641.e51faa9c.chunk.js.map
