@@ -1,8 +1,34 @@
 import { Page } from "components";
 import { Select } from "components";
 import { CAST_OPTIONS, RELIGION_OPTIONS, ZODIAC_OPTIONS } from "data";
+import { useMutation } from "react-query";
+import { register } from "utils/auth";
+import { ImSpinner8 } from "react-icons/im";
+import { useAuth } from "AuthProvider";
+import { User } from "../../types";
+
+interface RegisterResponse {
+  success: string;
+  data: {
+    user: User;
+    token: string;
+  };
+}
+
+interface ErrorResponse {
+  status: boolean;
+  message: string;
+}
 
 function RegisterScreen() {
+  const { isLoading, error, mutate } = useMutation<
+    RegisterResponse,
+    ErrorResponse,
+    any
+  >(register);
+
+  const { updateUserAndToken } = useAuth();
+
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
 
@@ -10,17 +36,32 @@ function RegisterScreen() {
 
     const registerData = Object.fromEntries(formData.entries());
 
-    console.log({ registerData });
+    mutate(registerData, {
+      onSuccess: (res) => {
+        console.log(res);
+        updateUserAndToken(res.data.user, res.data.token);
+      },
+    });
   };
 
   return (
     <Page>
+      {error ? <p>{error?.message}</p> : null}
       <div className="container mt-6">
         <form
           onSubmit={handleSubmit}
           className="bg-white w-11/12 md:w-1/2 m-auto shadow-md rounded px-8 pt-6 pb-8 mb-4"
         >
           <h1 className="text-2xl font-semibold">Register your Account</h1>
+          <div className="mt-6">
+            <label className="input-text-label">Username</label>
+            <input
+              name="username"
+              id="username"
+              className="input-text"
+              required
+            />
+          </div>
           <div className="mt-6">
             <label className="input-text-label">First name</label>
             <input
@@ -87,9 +128,10 @@ function RegisterScreen() {
             <label className="input-text-label">Phone</label>
             <input
               type="tel"
-              name="phone"
-              id="phone"
+              name="mobile"
+              id="mobile"
               className="input-text"
+              maxLength={10}
               required
             />
           </div>
@@ -105,7 +147,7 @@ function RegisterScreen() {
             <label className="input-text-label" htmlFor="caste">
               Caste
             </label>
-            <Select options={CAST_OPTIONS} name="religion" id="religion" />
+            <Select options={CAST_OPTIONS} name="caste" id="religion" />
           </div>
 
           <div className="mt-6">
@@ -120,7 +162,8 @@ function RegisterScreen() {
               className="bg-primary py-2 px-4 rounded text-white font-semibold"
               type="submit"
             >
-              Login
+              Register{" "}
+              {isLoading ? <ImSpinner8 className="animate-spin" /> : null}
             </button>
           </div>
         </form>

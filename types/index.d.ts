@@ -35,6 +35,10 @@ export type User = {
   religion: Religions;
   caste: string;
   zodiac: string;
+};
+
+export type Authentication = {
+  user: User;
   token?: string;
 };
 
